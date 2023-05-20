@@ -1,0 +1,4 @@
+pymatching~=2.1
+stim~=1.12.dev
+sinter~=1.12.dev
+pytest

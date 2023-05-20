@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+import gen
+
+from baconshor._bacon_shor import make_bacon_shor_constructions
+from baconshor._bacon_shor_lattice_surgery import \
+    make_bacon_shor_lattice_surgery_constructions
+from baconshor._fractal_bacon_shor import \
+    make_fractal_bacon_shor_constructions
+
+
+def main():
+    constructions = {
+        **make_bacon_shor_constructions(),
+        **make_fractal_bacon_shor_constructions(),
+        **make_bacon_shor_lattice_surgery_constructions(),
+    }
+
+    gen.main_generate_circuits(
+        constructions=constructions,
+        extras={
+            'fractal_pitch': int,
+            'surgery_hold_factor': int,
+            'b': str,
+        },
+    )
+
+
+if __name__ == '__main__':
+    main()
